@@ -1,7 +1,10 @@
 import React from 'react'
+import RecipeForm from '../components/RecipeInput';
 
 const NewRecipe = () => {
-    return <h2>New Recipe Works</h2>
+    return (
+        <RecipeForm/>
+    )
 };
 
 export default NewRecipe;

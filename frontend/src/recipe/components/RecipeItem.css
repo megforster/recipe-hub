@@ -38,3 +38,7 @@
     width:1rem;
     float:right;
   }
+
+  .delete-icon:hover{
+    color:red;
+  }
