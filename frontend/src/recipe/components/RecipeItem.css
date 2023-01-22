@@ -1,0 +1,40 @@
+.recipeItem {
+    margin: 1rem;
+    width: calc(45% - 2rem);
+    min-width: 17.5rem;
+  }
+  
+  .recipeItem a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    padding: 1rem;
+    color: black;
+    background: white;
+  }
+
+  .recipeItem:hover a,
+  .recipeItem:active a{
+    background: gray;
+  }
+  
+  .recipeItem__content {
+    padding: 0;
+  }
+  
+  .recipeItem__image {
+    width: 4rem;
+    height: 4rem;
+    margin:auto;
+  }
+
+  .recipeItem__info h1{
+    text-align: center;
+  }
+
+  .delete-icon{
+    width:1rem;
+    float:right;
+  }
