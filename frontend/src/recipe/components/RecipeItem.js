@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import RecipeImage from '../../shared/components/UIElements/RecipeImage';
 import './RecipeItem.css';
 import Card from '../../shared/components/UIElements/Card';
-import {FaTrash} from "react-icons/fa"
+import {FaTrash, FaPencilAlt} from "react-icons/fa"
 import Modal from '../../shared/components/UIElements/Modal';
 import Button from '../../shared/components/FormElements/Button'
 
@@ -23,9 +23,14 @@ const RecipeItem = props => {
                     <Link to={`/recipes/${props.id}`}>
                     
                         <div className='recipeItem__content'>
-                            <Link>
-                                <FaTrash className='delete-icon' onClick={openDeleteModalHandler}/>
-                            </Link>
+                            <div className='recipe-icons'>
+                                <Link>
+                                    <FaTrash className='delete-icon' onClick={openDeleteModalHandler}/>
+                                </Link>
+                                <Link>
+                                    <FaPencilAlt className='edit-icon'/>
+                                </Link>
+                            </div>
                             <div className='recipeItem__image'>
                                 <RecipeImage image={props.image} alt={props.title} width={75}/>
                             </div>
