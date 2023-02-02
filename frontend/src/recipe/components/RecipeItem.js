@@ -27,7 +27,7 @@ const RecipeItem = props => {
                                 <Link>
                                     <FaTrash className='delete-icon' onClick={openDeleteModalHandler}/>
                                 </Link>
-                                <Link>
+                                <Link to={`/recipes/edit/${props.id}`}>
                                     <FaPencilAlt className='edit-icon'/>
                                 </Link>
                             </div>

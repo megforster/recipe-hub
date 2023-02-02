@@ -43,6 +43,10 @@
   justify-self:flex-end
  }
 
+ .edit-icon:hover{
+  color:#1e4e26;
+ }
+
   .recipe-icons{
     display:flex;
   }

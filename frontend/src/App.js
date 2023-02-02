@@ -5,6 +5,7 @@ import NewRecipe from './recipe/pages/NewRecipe';
 import SearchRecipes from './recipe/pages/SearchRecipes';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import Recipe from './recipe/pages/Recipe';
+import UpdateRecipe from './recipe/pages/UpdateRecipe';
 
 const App = () => {
   return <Router>
@@ -19,6 +20,9 @@ const App = () => {
         </Route>
         <Route path="/recipes/search" exact>
           <SearchRecipes/>
+        </Route>
+        <Route path="/recipes/edit/:recipeId">
+          <UpdateRecipe/>
         </Route>
         <Route path="/recipes/:recipeId">
           <Recipe/>
