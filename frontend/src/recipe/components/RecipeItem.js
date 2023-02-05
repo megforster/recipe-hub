@@ -10,10 +10,14 @@ import Button from '../../shared/components/FormElements/Button'
 const RecipeItem = props => {
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const openDeleteModalHandler = () => setShowDeleteModal(true);
-    const clostDeleteModalHandler = () => setShowDeleteModal(false);
+    const cancelDeleteHandler = () => setShowDeleteModal(false);
+    const confirmDeleteHandler = () => {
+        console.log('DLETE...');
+        setShowDeleteModal(false);
+    }
     return (
         <React.Fragment>
-            <Modal show={showDeleteModal} onCancel={clostDeleteModalHandler} header="Delete Recipe" footer={<Button onClick={clostDeleteModalHandler}>Cancel</Button>}>
+            <Modal show={showDeleteModal} onCancel={cancelDeleteHandler} header="Delete Recipe" footer={<div><Button onClick={cancelDeleteHandler}>Cancel</Button><Button onClick={confirmDeleteHandler}>Delete</Button></div>}>
                 <div>
                     <p>Are you sure you want to delete this recipe?</p>
                 </div>
@@ -21,16 +25,7 @@ const RecipeItem = props => {
             <li className="recipeItem">
                 <Card>
                     <Link to={`/recipes/${props.id}`}>
-                    
                         <div className='recipeItem__content'>
-                            <div className='recipe-icons'>
-                                <Link>
-                                    <FaTrash className='delete-icon' onClick={openDeleteModalHandler}/>
-                                </Link>
-                                <Link to={`/recipes/edit/${props.id}`}>
-                                    <FaPencilAlt className='edit-icon'/>
-                                </Link>
-                            </div>
                             <div className='recipeItem__image'>
                                 <RecipeImage image={props.image} alt={props.title} width={75}/>
                             </div>
@@ -40,6 +35,14 @@ const RecipeItem = props => {
                             </div>
                         </div>
                     </Link>
+                    <div className='recipe-icons'>
+                        <Button delete={true} onClick={openDeleteModalHandler}>
+                            <FaTrash/>
+                        </Button>
+                        <Button edit={true} to={`/recipes/edit/${props.id}`}>
+                            <FaPencilAlt/>
+                        </Button>
+                    </div>
                 </Card>
             </li>
         </React.Fragment>

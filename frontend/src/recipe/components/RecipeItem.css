@@ -15,10 +15,10 @@
     background: white;
   }
 
-  .recipeItem:hover a,
+ /*  .recipeItem:hover a,
   .recipeItem:active a{
     background: gray;
-  }
+  } */
   
   .recipeItem__content {
     padding: 0;
@@ -34,23 +34,6 @@
     text-align: center;
   }
 
-  .delete-icon{
-    width:1rem;
-  }
- 
- .edit-icon{
-  width: 1rem;
-  justify-self:flex-end
- }
-
- .edit-icon:hover{
-  color:#1e4e26;
- }
-
   .recipe-icons{
     display:flex;
-  }
-
-  .delete-icon:hover{
-    color:red;
   }
