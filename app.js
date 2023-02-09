@@ -5,6 +5,14 @@ const recipeRoutes = require('./routes/recipe-routes');
 
 const app = express();
 
-app.use(recipeRoutes);
+app.use('/api/recipes', recipeRoutes);
 
-app.listen(3000);
+app.use((error, req, res, next)=>{
+    if(res.headerSent){
+        return next(error);
+    }
+    res.status(error.code||500);
+    res.json({message:error.message||"An unknown error occured."})
+});
+
+app.listen(5001);

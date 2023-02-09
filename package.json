@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
-    "start-watch": "app app.js",
-    "dev": "concurrently \"npm run start-watch\" \"cd frontend && npm start\""
+    "dev": "concurrently \"npm start\" \"cd frontend && npm start\""
   },
   "keywords": [],
   "author": "",

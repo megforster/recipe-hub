@@ -13,7 +13,7 @@ const RecipeSchema = new Schema({
   directions:{
     type: String, 
     required:[true, 'The  directions field is required']
-  }
+  } 
 });
 // Create model for Recipe
 const Recipe = mongoose.model('recipe', RecipeSchema);
