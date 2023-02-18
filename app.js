@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const HttpError = require('./models/http-error');
-
 const recipeRoutes = require('./routes/recipe-routes');
+const mongoose = require('mongoose');
 
 const app = express();
 
@@ -23,4 +23,13 @@ app.use((error, req, res, next)=>{
     res.json({message:error.message||"An unknown error occured."})
 });
 
-app.listen(5001);
+mongoose
+    .connect("mongodb://localhost:27017/recipe-hub")
+    .then(()=>{
+        console.log("Sucessfully connected to database!");
+        app.listen(5001);
+    })
+    .catch(err =>{
+        console.log(err);
+    });
+
