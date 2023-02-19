@@ -25,7 +25,8 @@ router.patch(
         check('ingrediants').not().isEmpty(), 
         check('directions').not().isEmpty()
     ],  
-    recipesController.updateRecipe);
+    recipesController.updateRecipe
+);
 
 router.delete('/:recipeId', recipesController.deleteRecipe);
 
