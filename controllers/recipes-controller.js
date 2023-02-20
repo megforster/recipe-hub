@@ -45,19 +45,19 @@ const addRecipe = async (req, res, next)=>{
         return next(new HttpError('Invalid inputs passed. Please  check your data.', 422));
     }
     
-    const {title, ingrediants, image,  directions} = req.body;
+    const {title, ingrediants, image = "test",  directions} = req.body;
 
     const newRecipe = new Recipe({
         title, 
-        image: "t",
+        image,
         ingrediants,
         directions
     })
-    console.log("!!!!!!!!"+newRecipe.title);
+
     try{
         await newRecipe.save();
     }catch(err){
-        const error = new HttpError("Adding recipe failed, please try again", 500);
+        const error = new HttpError("Something went wrong, could not add recipe.", 500);
         return next(error);
     }
 

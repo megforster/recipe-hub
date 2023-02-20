@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import Input from "../../shared/components/FormElements/Input";
 import './RecipeForm.css';
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
@@ -25,18 +26,21 @@ const NewRecipe = () => {
         }
     }, false)
 
+    const history = useHistory();
+
     const recipeSubmitHandler = async event => {
         event.preventDefault();
         try{
             await sendRequest('http://localhost:5001/api/recipes', 'POST', 
                 JSON.stringify({
                     title: formState.inputs.title.value, 
-                    ingrediants: formState.inputs.ingrediants,
-                    directions: formState.inputs.directions
+                    ingrediants: formState.inputs.ingrediants.value,
+                    directions: formState.inputs.directions.value, 
+                    image:"test"
                 }), 
                 {'Content-Type': 'application/json' }
             ); 
-            //To-Do: Redirect user to recipe page
+            history.push('/');
         }catch(err){} 
     }
 

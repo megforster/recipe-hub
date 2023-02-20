@@ -18,13 +18,17 @@ const AllRecipes  = () => {
         fetchRecipes();
     }, [sendRequest]);
 
+    const recipeDeletedHandlder = deletedRecipeId => {
+        setLoadedData(prevRecipes => prevRecipes.filter(r=>r.id!==deletedRecipeId));
+    };
+
     return (
         <React.Fragment>
         <ErrorModal error = {error} onClear = {clearError}/>
             {isLoading&&(<div className='center'>
                 <LoadingSpinner/>
             </div>)}
-            {!isLoading && loadedData && <RecipeList recipes={loadedData}/>}
+            {!isLoading && loadedData && <RecipeList recipes={loadedData} onDeleteRecipe={recipeDeletedHandlder}/>}
         </React.Fragment>
     );
 };

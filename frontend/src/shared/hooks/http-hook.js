@@ -14,11 +14,11 @@ export const useHttpClient = () => {
 
             try{
                 const response = await fetch(url, {
-                    method, 
-                    body, 
-                    headers, 
+                    method,
+                    body,
+                    headers,
                     signal: httpAbortCtrl.signal
-                });
+                  });
 
                 const responseData = await response.json();
 

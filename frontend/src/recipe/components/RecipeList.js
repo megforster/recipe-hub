@@ -20,7 +20,9 @@ const RecipeList = props => {
                 image={recipe.image}
                 title={recipe.title} 
                 ingrediants = {recipe.ingrediants} 
-                directions = {recipe.directions}/>
+                directions = {recipe.directions}
+                onDelete = {props.onDeleteRecipe}
+                />
         ))}
     </ul>;
 };

@@ -11,7 +11,8 @@ router.get('/:recipeId', recipesController.getRecipeById);
 router.post(
     '/',
     [
-        check('title').not().isEmpty(), 
+        check('title').not().isEmpty(),
+        check('image').not().isEmpty(),
         check('ingrediants').not().isEmpty(), 
         check('directions').not().isEmpty()
     ], 
@@ -22,6 +23,7 @@ router.patch(
     '/:recipeId',
     [
         check('title').not().isEmpty(), 
+        check('image').not().isEmpty(),
         check('ingrediants').not().isEmpty(), 
         check('directions').not().isEmpty()
     ],  

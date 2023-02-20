@@ -9,7 +9,7 @@ const recipeSchema = new Schema({
   }, 
   image: {
     type: String, 
-    required:[false]
+    required:[true, 'The image field is required']
   },
   ingrediants:{
     type: String, 
